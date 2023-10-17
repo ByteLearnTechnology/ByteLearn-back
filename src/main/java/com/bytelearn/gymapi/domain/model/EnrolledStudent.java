@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +27,9 @@ public class EnrolledStudent {
   @Column(unique = true, nullable = false)
   private String cpf;
   private String email;
+  @OneToOne
   private Plan plan;
+  @OneToOne
   private Status status;
 
   @Override
