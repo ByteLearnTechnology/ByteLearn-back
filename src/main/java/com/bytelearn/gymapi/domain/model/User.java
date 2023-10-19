@@ -10,15 +10,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity(name = "tb_user")
 public class User {
   @Id
@@ -30,6 +29,13 @@ public class User {
   private String password;
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   private List<EnrolledStudent> enrolled;
+
+  public User() { }
+
+  public User(String login, String password) {
+    this.login = login;
+    this.password = password;
+  }
 
   @Override
   public String toString() {

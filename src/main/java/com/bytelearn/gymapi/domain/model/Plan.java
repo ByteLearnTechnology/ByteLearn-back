@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -15,7 +14,6 @@ import lombok.ToString;
 @Setter
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity(name = "tb_plans")
 public class Plan {
   @Id
@@ -23,5 +21,12 @@ public class Plan {
   private Long id;
   private String description;
   private double price;
+  
+  public Plan() { }
+  
+  public Plan(String description, double price) {
+    this.description = description;
+    this.price = price;
+  }
   
 }

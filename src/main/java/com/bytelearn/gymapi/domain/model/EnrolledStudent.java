@@ -9,13 +9,11 @@ import jakarta.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity(name = "tb_enrolledStudent")
 public class EnrolledStudent {
   @Id
@@ -31,6 +29,24 @@ public class EnrolledStudent {
   private Plan plan;
   @OneToOne
   private Status status;
+  
+  public EnrolledStudent() { }
+
+  public EnrolledStudent(String name, String phone, String cpf, String email) {
+    this.name = name;
+    this.phone = phone;
+    this.cpf = cpf;
+    this.email = email;
+  }
+  
+  public EnrolledStudent(String name, String phone, String cpf, String email, Plan plan, Status status) {
+    this.name = name;
+    this.phone = phone;
+    this.cpf = cpf;
+    this.email = email;
+    this.plan = plan;
+    this.status = status;
+  }
 
   @Override
   public String toString() {
