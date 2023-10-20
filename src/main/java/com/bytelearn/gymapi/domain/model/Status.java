@@ -1,30 +1,27 @@
 package com.bytelearn.gymapi.domain.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@ToString
-@Setter
-@Getter
-@AllArgsConstructor
 @Entity(name = "tb_status")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Status {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String description;
+  @OneToMany(mappedBy = "status")
+  private List<EnrolledStudent> enrolleds;
 
-  public Status() { }
-
-  public Status(String description) {
-    this.description = description;
-  }
-  
 }

@@ -5,16 +5,19 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity(name = "tb_enrolledStudent")
 @Setter
 @Getter
 @AllArgsConstructor
-@Entity(name = "tb_enrolledStudent")
+@NoArgsConstructor
 public class EnrolledStudent {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,34 +28,20 @@ public class EnrolledStudent {
   @Column(unique = true, nullable = false)
   private String cpf;
   private String email;
-  @OneToOne
+  @ManyToOne
+  @JoinColumn(name = "plan_id")
   private Plan plan;
-  @OneToOne
+  @ManyToOne
+  @JoinColumn(name = "status_id")
   private Status status;
-  
-  public EnrolledStudent() { }
-
-  public EnrolledStudent(String name, String phone, String cpf, String email) {
-    this.name = name;
-    this.phone = phone;
-    this.cpf = cpf;
-    this.email = email;
-  }
-  
-  public EnrolledStudent(String name, String phone, String cpf, String email, Plan plan, Status status) {
-    this.name = name;
-    this.phone = phone;
-    this.cpf = cpf;
-    this.email = email;
-    this.plan = plan;
-    this.status = status;
-  }
+  @ManyToOne
+  @JoinColumn(name = "user_id", referencedColumnName = "id")
+  private User user;
 
   @Override
   public String toString() {
     return "EnrolledStudent [ Id: " + id + ", nome: " + name + ", telefone: " + phone + ", CPF: " + cpf 
-      + ", e-mail: " + email
-      + ", plano: " + plan + ", status: " + status + " ]";
+      + ", e-mail: " + email + " ]";
   }
 
 }
