@@ -19,8 +19,7 @@ import com.bytelearn.gymapi.service.StatusService;
 
 @RestController
 @RequestMapping("/api/status")
-public class StatusController {
-  private StatusService statusService;
+public record StatusController(StatusService statusService) {
 
   public StatusController(StatusService statusService) {
     this.statusService = statusService;
