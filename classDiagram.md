@@ -1,3 +1,4 @@
+
 ```mermaid
 
 classDiagram
@@ -15,6 +16,7 @@ classDiagram
     cpf: string
     email: string
     plan: Plan
+    finance: Finance
     status: Status
   }
 
@@ -29,8 +31,15 @@ classDiagram
     description: string
   }
 
+  class Finance {
+    id: int
+    payday: date
+    planMonths: int
+  }
+
   User "1" *-- "N" Enrolled
   Enrolled "N" *-- "1" Plan
   Enrolled "N" *-- "1" Status
+  Enrolled "1" *-- "1" Finance
 
 ```
