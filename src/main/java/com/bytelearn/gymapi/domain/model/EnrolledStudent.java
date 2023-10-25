@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,6 +38,9 @@ public class EnrolledStudent {
   @ManyToOne
   @JoinColumn(name = "user_id", referencedColumnName = "id")
   private User user;
+  @OneToOne
+  @JoinColumn(name = "finance_id", referencedColumnName = "id")
+  private Finance finance;
 
   @Override
   public String toString() {
