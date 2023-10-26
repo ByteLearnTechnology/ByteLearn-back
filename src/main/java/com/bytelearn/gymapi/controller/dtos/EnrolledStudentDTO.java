@@ -16,5 +16,6 @@ public class EnrolledStudentDTO {
   private Long plan_id;
   private Long status_id;
   private Long user_id;
+  private Long finance_id;
 
 }

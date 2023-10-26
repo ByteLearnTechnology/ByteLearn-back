@@ -18,5 +18,6 @@ public class DataEnrolledStudentDTO {
   private PlanDTO plan;
   private StatusDTO status;
   private UserDTO user;
+  private FinanceDTO finance;
 
 }

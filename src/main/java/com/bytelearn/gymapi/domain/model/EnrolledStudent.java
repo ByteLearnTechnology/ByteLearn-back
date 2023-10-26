@@ -1,5 +1,6 @@
 package com.bytelearn.gymapi.domain.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -38,7 +39,7 @@ public class EnrolledStudent {
   @ManyToOne
   @JoinColumn(name = "user_id", referencedColumnName = "id")
   private User user;
-  @OneToOne
+  @OneToOne(cascade = CascadeType.REMOVE)
   @JoinColumn(name = "finance_id", referencedColumnName = "id")
   private Finance finance;
 
