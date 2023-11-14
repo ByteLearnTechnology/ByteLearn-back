@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.bytelearn'
-version = '0.0.1-SNAPSHOT'
+version = '1'
 
 java {
 	sourceCompatibility = '17'
@@ -26,7 +26,8 @@ dependencies {
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.1.0'
 }
 
-tasks.jar {
+jar {
+	enabled = false
 	manifest {
 		attributes["Main-Class"] = "java.com.bytelearn.gymapi.Application"
 	}
