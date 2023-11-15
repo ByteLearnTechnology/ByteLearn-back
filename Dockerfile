@@ -10,5 +10,5 @@ EXPOSE 8080
 FROM openjdk:17-jdk-slim
 
 VOLUME /tmp
-COPY build/libs/gymapi-1.jar app.jar
+COPY /build/libs/gymapi-1.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
