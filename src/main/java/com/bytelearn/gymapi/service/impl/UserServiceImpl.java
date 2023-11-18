@@ -54,6 +54,7 @@ public class UserServiceImpl implements UserService {
         return UserDTO.builder()
           .id(u.getId())
           .login(u.getLogin())
+          .password(u.getPassword())
           .build();
       }).orElseThrow(() -> new NotFoundException("Usuário não encontrado."));
   }
