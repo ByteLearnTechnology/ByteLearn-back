@@ -4,5 +4,5 @@ import com.bytelearn.gymapi.controller.dtos.UserDTO;
 import com.bytelearn.gymapi.domain.model.User;
 
 public interface UserService extends CrudService<User, UserDTO, Long> {
-  User autenticar(UserDTO dto);
+  UserDTO autenticar(UserDTO dto);
 }

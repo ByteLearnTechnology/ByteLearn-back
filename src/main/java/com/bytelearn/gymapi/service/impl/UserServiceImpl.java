@@ -71,11 +71,17 @@ public class UserServiceImpl implements UserService {
   
   @Override
   @Transactional
-  public User autenticar(UserDTO dto) {
+  public UserDTO autenticar(UserDTO dto) {
     User user = userRepository.findByLogin(dto.getLogin());
     
     if (dto != null && dto.getPassword().equals(user.getPassword())) {
-      return user;
+      return userRepository.findById(user.getId())
+        .map((User u) -> {
+          return UserDTO.builder()
+            .id(u.getId())
+            .login(u.getLogin())
+          .build();
+        }).orElseThrow(() -> new NotFoundException("Usuário não encontrado."));
     }
 
     throw new BusinessRuleException("Usuário ou senha inválida.");
