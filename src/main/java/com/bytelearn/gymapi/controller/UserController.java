@@ -56,9 +56,9 @@ public record UserController(UserService userService) {
   }
 
   @PostMapping("/login")
-  public User auth(@RequestBody UserDTO dto) {
+  public UserDTO auth(@RequestBody UserDTO dto) {
     try {
-      User user = userService.autenticar(dto);
+      UserDTO user = userService.autenticar(dto);
       return user;
     } catch (BusinessRuleException e) {
       throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage());
