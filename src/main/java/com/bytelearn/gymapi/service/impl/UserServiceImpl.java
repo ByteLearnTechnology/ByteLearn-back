@@ -71,10 +71,10 @@ public class UserServiceImpl implements UserService {
   
   @Override
   @Transactional
-  public User autenticar(UserDTO dto) {
-    User user = userRepository.findByLogin(dto.getLogin());
+  public User autenticar(User user) {
+    User u = userRepository.findByLogin(user.getLogin());
     
-    if (user != null && dto.getPassword().equals(user.getPassword())) {
+    if (user != null && user.getPassword().equals(u.getPassword())) {
       return user;
     }
 
