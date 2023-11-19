@@ -14,12 +14,10 @@ import com.bytelearn.gymapi.domain.model.EnrolledStudent;
 import com.bytelearn.gymapi.domain.model.Finance;
 import com.bytelearn.gymapi.domain.model.Plan;
 import com.bytelearn.gymapi.domain.model.Status;
-import com.bytelearn.gymapi.domain.model.User;
 import com.bytelearn.gymapi.domain.repository.EnrolledStudentRepository;
 import com.bytelearn.gymapi.domain.repository.FinanceRepository;
 import com.bytelearn.gymapi.domain.repository.PlanRepository;
 import com.bytelearn.gymapi.domain.repository.StatusRepository;
-import com.bytelearn.gymapi.domain.repository.UserRepository;
 import com.bytelearn.gymapi.exceptions.NotFoundException;
 import com.bytelearn.gymapi.service.EnrolledStudentService;
 
@@ -31,7 +29,6 @@ public class EnrolledStudentServiceImpl implements EnrolledStudentService {
   private final EnrolledStudentRepository enrolledRepository;
   private final PlanRepository planRepository;
   private final StatusRepository statusRepository;
-  private final UserRepository userRepository;
   private final FinanceRepository financeRepository;
 
   @Override
@@ -41,8 +38,6 @@ public class EnrolledStudentServiceImpl implements EnrolledStudentService {
       .orElseThrow(() -> new NotFoundException("Plano não encontrado."));
     Status status = statusRepository.findById(dto.getStatus_id())
       .orElseThrow(() -> new NotFoundException("Status não encontrado."));
-    User user = userRepository.findById(dto.getUser_id())
-      .orElseThrow(() -> new NotFoundException("Usuário não encontrado."));
     Finance finance = financeRepository.findById(dto.getFinance_id())
       .orElseThrow(() -> new NotFoundException("Dados financeiros não encontrado."));
     
@@ -53,7 +48,6 @@ public class EnrolledStudentServiceImpl implements EnrolledStudentService {
     enrolled.setEmail(dto.getEmail());
     enrolled.setPlan(plan);
     enrolled.setStatus(status);
-    enrolled.setUser(user);
     enrolled.setFinance(finance);
     return enrolledRepository.save(enrolled);
   }
@@ -132,8 +126,6 @@ public class EnrolledStudentServiceImpl implements EnrolledStudentService {
       .orElseThrow(() -> new NotFoundException("Plano não encontrado."));
     Status status = statusRepository.findById(dto.getStatus_id())
       .orElseThrow(() -> new NotFoundException("Status não encontrado."));
-    User user = userRepository.findById(dto.getUser_id())
-      .orElseThrow(() -> new NotFoundException("Usuário não encontrado."));
     Finance finance = financeRepository.findById(dto.getFinance_id())
       .orElseThrow(() -> new NotFoundException("Dados financeiros não encontrado."));
     
@@ -143,7 +135,6 @@ public class EnrolledStudentServiceImpl implements EnrolledStudentService {
     enrolled.setEmail(dto.getEmail());
     enrolled.setPlan(plan);
     enrolled.setStatus(status);
-    enrolled.setUser(user);
     enrolled.setFinance(finance);
     enrolledRepository.save(enrolled);
   }
