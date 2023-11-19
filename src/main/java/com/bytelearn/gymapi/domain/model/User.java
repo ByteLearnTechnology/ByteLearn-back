@@ -34,4 +34,8 @@ public class User {
   public String toString() {
     return "User [ Id: " + id + ", login: " + login + " ]";
   }
+
+  public User orElseThrow(Object object) {
+    return null;
+  }
 }

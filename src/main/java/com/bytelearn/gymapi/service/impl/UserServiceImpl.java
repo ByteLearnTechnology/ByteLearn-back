@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bytelearn.gymapi.controller.dtos.UserDTO;
 import com.bytelearn.gymapi.domain.model.User;
 import com.bytelearn.gymapi.domain.repository.UserRepository;
+import com.bytelearn.gymapi.exceptions.BusinessRuleException;
 import com.bytelearn.gymapi.exceptions.NotFoundException;
 import com.bytelearn.gymapi.service.UserService;
 
@@ -67,5 +68,17 @@ public class UserServiceImpl implements UserService {
     user.setPassword(dto.getPassword());
     userRepository.save(user);
   }
+  
+  @Override
+  @Transactional
+  public User autenticar(UserDTO dto) {
+    User user = userRepository.findByLogin(dto.getLogin());
+    
+    if (dto.getPassword().equals(user.getPassword())) {
+      return user;
+    }
+
+    throw new BusinessRuleException("Usuário ou senha inválida.");
+  };
 
 }
