@@ -74,7 +74,7 @@ public class UserServiceImpl implements UserService {
   public User autenticar(UserDTO dto) {
     User user = userRepository.findByLogin(dto.getLogin());
     
-    if (dto.getPassword().equals(user.getPassword())) {
+    if (user != null && dto.getPassword().equals(user.getPassword())) {
       return user;
     }
 
