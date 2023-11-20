@@ -9,13 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class DataEnrolledStudentDTO {
+public class DataPlanDTO {
   private Long id;
-  private String name;
-  private String phone;
-  private String cpf;
-  private String email;
-  private DataPlanDTO plan;
-  private StatusDTO status;
+  private String description;
+  private double price;
+  private FinanceDTO finance;
 
 }

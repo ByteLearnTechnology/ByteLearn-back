@@ -23,6 +23,6 @@ public class Finance {
   private Date payday;
   private int planMonths;
   @OneToOne(mappedBy = "finance")
-  private EnrolledStudent enrolled;
+  private Plan plan;
 
 }

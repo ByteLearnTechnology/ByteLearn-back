@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bytelearn.gymapi.controller.dtos.DataPlanDTO;
 import com.bytelearn.gymapi.controller.dtos.PlanDTO;
 import com.bytelearn.gymapi.domain.model.Plan;
 import com.bytelearn.gymapi.service.PlanService;
@@ -33,7 +34,7 @@ public record PlanController(PlanService planService) {
   }
 
   @GetMapping("{id}")
-  public PlanDTO getPlanById(@PathVariable Long id) {
+  public DataPlanDTO getPlanById(@PathVariable Long id) {
     return planService.findById(id);
   }
 
@@ -49,7 +50,7 @@ public record PlanController(PlanService planService) {
   }
 
   @GetMapping
-  public List<PlanDTO> getAll() {
+  public List<DataPlanDTO> getAll() {
     return planService.findAll();
   }
 

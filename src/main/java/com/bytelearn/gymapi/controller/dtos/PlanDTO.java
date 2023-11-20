@@ -13,5 +13,6 @@ public class PlanDTO {
   private Long id;
   private String description;
   private double price;
+  private Long finance_id;
   
 }
