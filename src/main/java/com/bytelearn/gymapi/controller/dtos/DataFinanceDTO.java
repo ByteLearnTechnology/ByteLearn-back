@@ -1,19 +1,21 @@
 package com.bytelearn.gymapi.controller.dtos;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EnrolledStudentDTO {
+@Builder
+public class DataFinanceDTO {
   private Long id;
-  private String name;
-  private String phone;
-  private String cpf;
-  private String email;
-  private Long status_id;
-  private Long finance_id;
-
+  private Date payday;
+  private Date dueDate;
+  private int planMonths;
+  private PlanDTO plan;
+  
 }

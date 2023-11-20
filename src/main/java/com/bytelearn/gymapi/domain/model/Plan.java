@@ -7,7 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +22,8 @@ public class Plan {
   private Long id;
   private String description;
   private double price;
+  @OneToOne(mappedBy = "plan")
+  private Finance finance;
   @OneToMany(mappedBy = "plan")
   private List<EnrolledStudent> enrolleds;
   

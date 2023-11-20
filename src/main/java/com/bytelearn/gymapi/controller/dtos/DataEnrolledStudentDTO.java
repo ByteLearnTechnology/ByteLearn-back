@@ -15,8 +15,7 @@ public class DataEnrolledStudentDTO {
   private String phone;
   private String cpf;
   private String email;
-  private PlanDTO plan;
   private StatusDTO status;
-  private FinanceDTO finance;
+  private DataFinanceDTO finance;
 
 }

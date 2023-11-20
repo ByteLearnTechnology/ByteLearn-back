@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bytelearn.gymapi.controller.dtos.DataFinanceDTO;
 import com.bytelearn.gymapi.controller.dtos.FinanceDTO;
 import com.bytelearn.gymapi.domain.model.Finance;
 import com.bytelearn.gymapi.service.FinanceService;
@@ -33,7 +34,7 @@ public record FinanceController(FinanceService financeService) {
   }
 
   @GetMapping("{id}")
-  public FinanceDTO getFinanceById(@PathVariable Long id) {
+  public DataFinanceDTO getFinanceById(@PathVariable Long id) {
     return financeService.findById(id);
   }
 
@@ -49,7 +50,7 @@ public record FinanceController(FinanceService financeService) {
   }
 
   @GetMapping
-  public List<FinanceDTO> getAll() {
+  public List<DataFinanceDTO> getAll() {
     return financeService.findAll();
   }
 

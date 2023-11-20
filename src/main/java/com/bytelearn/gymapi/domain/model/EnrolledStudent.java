@@ -31,9 +31,6 @@ public class EnrolledStudent {
   private String cpf;
   private String email;
   @ManyToOne
-  @JoinColumn(name = "plan_id")
-  private Plan plan;
-  @ManyToOne
   @JoinColumn(name = "status_id")
   private Status status;
   @ManyToOne

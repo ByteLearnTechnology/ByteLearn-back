@@ -45,7 +45,7 @@ public record EnrolledStudentController(EnrolledStudentService enrolledService) 
   }
 
   @PutMapping("{id}")
-  public void update(Long id, EnrolledStudentDTO enrolledDTO) {
+  public void update(@PathVariable Long id,@RequestBody EnrolledStudentDTO enrolledDTO) {
     enrolledService.update(id, enrolledDTO);
   }
 
