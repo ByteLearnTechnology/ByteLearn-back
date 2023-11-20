@@ -52,6 +52,7 @@ public class PlanServiceImpl implements PlanService {
             .id(p.getFinance().getId())
             .payday(p.getFinance().getPayday())
             .planMonths(p.getFinance().getPlanMonths())
+            .dueDate(p.getFinance().getDueDate())
             .build())
           .build();
       }).toList();
@@ -70,6 +71,7 @@ public class PlanServiceImpl implements PlanService {
             .id(p.getFinance().getId())
             .payday(p.getFinance().getPayday())
             .planMonths(p.getFinance().getPlanMonths())
+            .dueDate(p.getFinance().getDueDate())
             .build())
           .build();
       }).orElseThrow(() -> new NotFoundException("Plano não encontrado."));

@@ -21,6 +21,7 @@ public class Finance {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private Date payday;
+  private Date dueDate;
   private int planMonths;
   @OneToOne(mappedBy = "finance")
   private Plan plan;

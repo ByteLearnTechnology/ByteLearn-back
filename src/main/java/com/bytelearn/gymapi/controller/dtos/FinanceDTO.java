@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class FinanceDTO {
   private Long id;
   private Date payday;
+  private Date dueDate;
   private int planMonths;
   
 }
