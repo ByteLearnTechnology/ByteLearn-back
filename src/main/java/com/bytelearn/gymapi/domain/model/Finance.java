@@ -2,12 +2,12 @@ package com.bytelearn.gymapi.domain.model;
 
 import java.util.Date;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -27,7 +27,7 @@ public class Finance {
   private int planMonths;
   @OneToOne(mappedBy = "finance")
   private EnrolledStudent enrolled;
-  @OneToOne(cascade = CascadeType.REMOVE)
+  @ManyToOne
   @JoinColumn(name = "plan_id", referencedColumnName = "id")
   private Plan plan;
 
