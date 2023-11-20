@@ -2,6 +2,8 @@ package com.bytelearn.gymapi.domain.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,6 +29,7 @@ public class Finance {
   private int planMonths;
   @OneToOne(mappedBy = "finance")
   private EnrolledStudent enrolled;
+  @JsonIgnore
   @ManyToOne
   @JoinColumn(name = "plan_id", referencedColumnName = "id")
   private Plan plan;
