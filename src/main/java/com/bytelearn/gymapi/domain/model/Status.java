@@ -2,6 +2,8 @@ package com.bytelearn.gymapi.domain.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +23,7 @@ public class Status {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String description;
+  @JsonIgnore
   @OneToMany(mappedBy = "status")
   private List<EnrolledStudent> enrolleds;
 
