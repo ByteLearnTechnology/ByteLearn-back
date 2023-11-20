@@ -1,12 +1,9 @@
 package com.bytelearn.gymapi.domain.model;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +21,5 @@ public class Plan {
   private double price;
   @OneToOne(mappedBy = "plan")
   private Finance finance;
-  @OneToMany(mappedBy = "plan")
-  private List<EnrolledStudent> enrolleds;
   
 }
