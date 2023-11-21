@@ -87,7 +87,7 @@ public class FinanceServiceImpl implements FinanceService {
   public void update(Long id, FinanceDTO dto) {
     Finance finance = financeRepository.findById(id)
       .orElseThrow(() -> new NotFoundException("Dados do financeiro não encontrado."));
-    Plan plan = planRepository.findById(id)
+    Plan plan = planRepository.findById(dto.getPlan_id())
       .orElseThrow(() -> new NotFoundException("Plano não encontrado."));
 
     finance.setPayday(dto.getPayday());
